@@ -7,7 +7,7 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\PackageName\\": "src/"
+            "AhmadSirojuddinKamil\\ModuleCodeIgniter4\\": "src/"
         }
     },
     "license": "MIT",
@@ -16,5 +16,11 @@
             "name": "Nama Anda",
             "email": "email@example.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/username/module-codeigniter4/issues",
+        "source": "https://github.com/username/module-codeigniter4"
+    }
 }
