@@ -1,5 +1,5 @@
 {
-    "name": "vendor-name/package-name",
+    "name": "ahmadsirojuddinkamil/module-codeigniter4",
     "description": "Deskripsi singkat package",
     "type": "library",
     "require": {
