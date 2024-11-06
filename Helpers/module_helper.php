@@ -194,7 +194,7 @@ if (!function_exists('moveFileGenerate')) {
 if (!function_exists('subFolderViewsGenerate')) {
     function subFolderViewsGenerate($pathViews)
     {
-        $folders = ['bases', 'components', 'pages'];
+    	$folders = ['components', 'layouts', 'pages'];
         $pathViews .= '/Views';
 
         foreach ($folders as $folder) {
