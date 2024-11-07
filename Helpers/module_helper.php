@@ -142,23 +142,13 @@ if (!function_exists('registerRoute')) {
             return false;
         }
 
-        $patternUse = '/^use\s+[^\s;]+;/m';
-        preg_match_all($patternUse, $routesContent, $matches);
+        $varRoutePosition = strpos($routesContent, '/** @var RouteCollection $routes */');
 
-        if (!empty($matches[0])) {
-            $lastUsePosition = strrpos($routesContent, $matches[0][count($matches[0]) - 1]) + strlen($matches[0][count($matches[0]) - 1]);
+        if ($varRoutePosition !== false) {
+            $insertPosition = $varRoutePosition + strlen('/** @var RouteCollection $routes */');
+            $newContent = substr($routesContent, 0, $insertPosition) . "\n\n$pathRoute" . substr($routesContent, $insertPosition);
         } else {
-            $lastUsePosition = 0;
-        }
-
-        $patternRequire = '/require_once\s+ROOTPATH\s*\.\s*\'[^\']+\';/m';
-        preg_match_all($patternRequire, $routesContent, $requireMatches);
-
-        if (!empty($requireMatches[0])) {
-            $lastRequirePosition = strrpos($routesContent, $requireMatches[0][count($requireMatches[0]) - 1]) + strlen($requireMatches[0][count($requireMatches[0]) - 1]);
-            $newContent = substr($routesContent, 0, $lastRequirePosition) . "\n$pathRoute" . substr($routesContent, $lastRequirePosition);
-        } else {
-            $newContent = substr($routesContent, 0, $lastUsePosition) . "\n\n$pathRoute" . substr($routesContent, $lastUsePosition);
+            $newContent = $routesContent . "\n\n$pathRoute";
         }
 
         file_put_contents($routesFile, $newContent);
@@ -194,7 +184,7 @@ if (!function_exists('moveFileGenerate')) {
 if (!function_exists('subFolderViewsGenerate')) {
     function subFolderViewsGenerate($pathViews)
     {
-    	$folders = ['components', 'layouts', 'pages'];
+        $folders = ['components', 'layouts', 'pages'];
         $pathViews .= '/Views';
 
         foreach ($folders as $folder) {
@@ -364,12 +354,11 @@ if (!function_exists('contentFilter')) {
 }
 
 if (!function_exists('contentRoute')) {
-    function contentRoute()
+    function contentRoute($nameModule)
     {
         $content = "<?php\n\n";
-        $content .= "use CodeIgniter\\Router\\RouteCollection;\n\n";
         $content .= "/**\n";
-        $content .= " * @var RouteCollection \$routes\n";
+        $content .= " * List endpoint module $nameModule\n";
         $content .= " */\n";
 
         return $content;

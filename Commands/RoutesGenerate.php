@@ -47,7 +47,7 @@ class RoutesGenerate extends BaseCommand
 
     private function generateFileRoute($nameModule, $nameFile, $filePath)
     {
-        $content = contentRoute();
+        $content = contentRoute($nameModule);
         makeDirFileGenerate($filePath);
 
         if (!moveFileGenerate($filePath, $content, $nameFile)) {
