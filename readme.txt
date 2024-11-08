@@ -36,7 +36,7 @@ lalu akan menghasilkan folder Database di dalam folder module nya kalau belum di
 
 Command ViewsGenerate
 Penggunaan command ini dengan cara php spark module:make-view Views {nameModule} example php spark module:make-view Views User
-lalu akan menghasilkan folder Views di dalam folder module nya kalau belum dibuat, lalu menghasilkan 3 folder di dalam Views yaitu : bases, components dan pages sebagai metode modular pemecahan file view 
+lalu akan menghasilkan folder Views di dalam folder module nya kalau belum dibuat, lalu menghasilkan 3 folder di dalam Views yaitu : components, layouts dan pages sebagai metode modular pemecahan file view 
 
 Command RoutesGenerate
 Penggunaan command ini dengan cara php spark module:make-route {nameRoute} {nameModule} example php spark module:make-route ApiUser User
