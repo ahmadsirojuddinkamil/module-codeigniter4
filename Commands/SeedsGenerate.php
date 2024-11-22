@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use CodeIgniter\CLI\BaseCommand;
+use CodeIgniter\CLI\CLI;
 
 class SeedsGenerate extends BaseCommand
 {
@@ -53,7 +54,7 @@ class SeedsGenerate extends BaseCommand
     {
         $filePath = str_replace('Database/', "Database/$subType/", $filePath);
 
-        $content = contentSeeder($nameModule);
+        $content = contentSeeder($nameModule, $nameFile);
         makeDirFileGenerate($filePath);
 
         if (!moveFileGenerate($filePath, $content, $nameFile)) {
