@@ -1,4 +1,4 @@
-SETELAH MENJALANKAN SEMUA COMMAND SEBAIKNYA MELAKUKAN php spark cache:clear 
+SETELAH MENJALANKAN SETIAP COMMAND SEBAIKNYA MELAKUKAN php spark cache:clear 
 
 KALAU INGIN MENGGUNAKAN LIVE SERVER, SEBAIKNYA CI_DEBUG DIBUAT FALSE DI FILE DEVELOPMENT.PHP
 
@@ -32,7 +32,7 @@ lalu akan menghasilkan daftar module apa saja yang tersedia.
 
 Command SeedsGenerate
 Penggunaan command ini dengan cara php spark module:make-seeder {nameSeeder} {nameModule} example php spark module:make-seeder UserSeeder User
-lalu akan menghasilkan folder Database di dalam folder module nya kalau belum dibuat, lalu menghasilkan folder Seeds juga di dalam folder Database kalau belum dibuat dengan format seeder default. Penggunaan seeder selanjutnya harus menggunakan command php spark db:seed {nameSeeder} example php spark db:seed UserSeeder
+lalu akan menghasilkan folder Database di dalam folder module nya kalau belum dibuat, lalu menghasilkan folder Seeds juga di dalam folder Database kalau belum dibuat dengan format seeder default. Penggunaan seeder selanjutnya harus menggunakan command php spark db:seed -n "Modules\{nameModule}\Database\Seeds\{nameSeeder} example php spark db:seed -n "Modules\User\Database\Seeds\UserSeeder"
 
 Command ViewsGenerate
 Penggunaan command ini dengan cara php spark module:make-view Views {nameModule} example php spark module:make-view Views User
