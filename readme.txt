@@ -26,17 +26,25 @@ Command ModelsGenerate
 Penggunaan command ini dengan cara php spark module:make-model {nameModel} {nameModule} example php spark module:make-model UserModel User
 lalu akan menghasilkan folder Models di dalam folder module nya kalau belum dibuat, lalu membuat file model nya dengan format model default.
 
+Command ServicesGenerate
+Penggunaan command ini dengan cara php spark module:make-service {nameService} {nameModule} example php spark module:make-service UserService User
+lalu akan menghasilkan folder Services di dalam folder module nya kalau belum dibuat, lalu membuat file service nya dengan format service default.
+
+Command RepositoryGenerate
+Penggunaan command ini dengan cara php spark module:make-repository {nameRepository} {nameModule} example php spark module:make-repository UserRepository User
+lalu akan menghasilkan folder Repository di dalam folder module nya kalau belum dibuat, lalu membuat file repository nya dengan format repository default.
+
 Command ModulesList
 Penggunaan command ini dengan cara php spark module:list
 lalu akan menghasilkan daftar module apa saja yang tersedia.
 
 Command SeedsGenerate
 Penggunaan command ini dengan cara php spark module:make-seeder {nameSeeder} {nameModule} example php spark module:make-seeder UserSeeder User
-lalu akan menghasilkan folder Database di dalam folder module nya kalau belum dibuat, lalu menghasilkan folder Seeds juga di dalam folder Database kalau belum dibuat dengan format seeder default. Penggunaan seeder selanjutnya harus menggunakan command php spark db:seed -n "Modules\{nameModule}\Database\Seeds\{nameSeeder} example php spark db:seed -n "Modules\User\Database\Seeds\UserSeeder"
+lalu akan menghasilkan folder Database di dalam folder module nya kalau belum dibuat, lalu menghasilkan folder Seeds juga di dalam folder Database kalau belum dibuat dengan format seeder default. Penggunaan seeder selanjutnya harus menggunakan command php spark db:seed {nameSeeder} example php spark db:seed UserSeeder
 
 Command ViewsGenerate
 Penggunaan command ini dengan cara php spark module:make-view Views {nameModule} example php spark module:make-view Views User
-lalu akan menghasilkan folder Views di dalam folder module nya kalau belum dibuat, lalu menghasilkan 3 folder di dalam Views yaitu : components, layouts dan pages sebagai metode modular pemecahan file view 
+lalu akan menghasilkan folder Views di dalam folder module nya kalau belum dibuat, lalu menghasilkan 3 folder di dalam Views yaitu : bases, components dan pages sebagai metode modular pemecahan file view 
 
 Command RoutesGenerate
 Penggunaan command ini dengan cara php spark module:make-route {nameRoute} {nameModule} example php spark module:make-route ApiUser User
@@ -53,3 +61,14 @@ lalu akan menghasilkan folder Config di dalam {nameModule}
 LibrariesGenerate
 Penggunaan command ini dengan cara php spark module:make-libraries {nameModule} example php spark module:make-libraries User
 lalu akan menghasilkan folder Libraries di dalam {nameModule}
+
+
+
+
+
+
+
+
+
+
+
