@@ -260,6 +260,34 @@ if (!function_exists('contentModel')) {
     }
 }
 
+if (!function_exists('contentService')) {
+    function contentService($nameFile, $nameModule)
+    {
+        $content = "<?php\n\n";
+        $content .= "namespace Modules\\" . $nameModule . "\\Services;\n\n";
+        $content .= "class " . ucfirst($nameFile) . "\n";
+        $content .= "{\n";
+        $content .= "\n";
+        $content .= "}\n";
+
+        return $content;
+    }
+}
+
+if (!function_exists('contentRepository')) {
+    function contentRepository($nameFile, $nameModule)
+    {
+        $content = "<?php\n\n";
+        $content .= "namespace Modules\\" . $nameModule . "\\Repository;\n\n";
+        $content .= "class " . ucfirst($nameFile) . "\n";
+        $content .= "{\n";
+        $content .= "\n";
+        $content .= "}\n";
+
+        return $content;
+    }
+}
+
 if (!function_exists('contentMigration')) {
     function contentMigration($nameModule)
     {
@@ -284,14 +312,14 @@ if (!function_exists('contentMigration')) {
 }
 
 if (!function_exists('contentSeeder')) {
-    function contentSeeder($nameModule)
+    function contentSeeder($nameModule, $nameFile)
     {
         $content = "<?php\n\n";
         $content .= "namespace Modules\\" . $nameModule . "\\Database\\Seeds;\n\n";
         $content .= "use CodeIgniter\\Database\\Seeder;\n\n";
-        $content .= "class " . ucfirst($nameModule) . " extends Seeder\n";
+        $content .= "class " . ucfirst($nameFile) . " extends Seeder\n";
         $content .= "{\n";
-        $content .= "    public function up()\n";
+        $content .= "    public function run()\n";
         $content .= "    {\n";
         $content .= "        //\n";
         $content .= "    }\n";
